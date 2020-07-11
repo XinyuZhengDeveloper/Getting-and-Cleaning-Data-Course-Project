@@ -1,11 +1,13 @@
 # Getting-and-Cleaning-Data-Course-Project
 This file is for Getting and Cleaning Data Course Project - Week 4 Assignment, submitted by Xinyu Zheng
 
-Dataset
+Dataset:
+
 Human Activity Recognition Using Smartphones
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-Files
+Files:
+
 CodeBook: describe the variables and steps that I manage with the data
 
 run_analysis.R: the code for the project, instructed by 5 steps:
