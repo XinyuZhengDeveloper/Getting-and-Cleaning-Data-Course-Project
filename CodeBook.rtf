@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg936\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Bold;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 HelveticaNeue-Italic;
+\f3\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red24\green24\blue24;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c12157\c12157\c12157;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs30 \cf2 \expnd0\expndtw0\kerning0
+Code Book\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs26 \cf2 \
+The script \'93run_analysis.R\'94 is a code tidying and merging the data from the Samsung Galaxy S smartphone project. \
+\
+Step 1: prepare, download the data zip and set working directory\
+\pard\tx20\tx240\pardeftab720\li240\fi-240\partightenfactor0
+\ls1\ilvl0
+\fs31\fsmilli15600 \cf2 \kerning1\expnd0\expndtw0 {\listtext	-	}
+\fs26 \expnd0\expndtw0\kerning0
+prepare by loading the library dplyr and data.table;\
+\ls1\ilvl0
+\fs31\fsmilli15600 \kerning1\expnd0\expndtw0 {\listtext	-	}
+\fs26 \expnd0\expndtw0\kerning0
+The dataset was downloaded from {\field{\*\fldinst{HYPERLINK "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"}}{\fldrslt \ul https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip}};\
+\ls1\ilvl0
+\fs31\fsmilli15600 \kerning1\expnd0\expndtw0 {\listtext	-	}
+\fs26 \expnd0\expndtw0\kerning0
+set the working directory to \'93UCI HAR Dataset\'94.\
+\ls1\ilvl0
+\fs31\fsmilli15600 \kerning1\expnd0\expndtw0 {\listtext	-	}
+\fs26 \expnd0\expndtw0\kerning0
+assign name for files and name columns, using 
+\f2\i read.table() 
+\f1\i0 function.\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+Step 2: manage the data by instruction\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f3 \cf3 \kerning1\expnd0\expndtw0 {\listtext	1.	}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+Merges the training and the test sets to create one data set.\uc0\u8232 - use 
+\f2\i rbind()
+\f1\i0  function to merge data tables: table x is created by merging x_test and x_train; table y is created by merging y_test and y_ train; subject is created by merging subject_test and subject_train; And data1 is created by merging subject, x and y.\uc0\u8232 \
+\ls2\ilvl0
+\f3 \cf3 \kerning1\expnd0\expndtw0 {\listtext	2.	}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+Extracts only the measurements on the mean and standard deviation for each measurement.\uc0\u8232 - data2 is created by extracting the columns of subject, code and columns that contains \'93mean\'94 and \'93std\'94 from data1.\u8232 \
+\ls2\ilvl0
+\f3 \cf3 \kerning1\expnd0\expndtw0 {\listtext	3.	}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+Uses descriptive activity names to name the activities in the data set\uc0\u8232 - the numbers in column \'93code\'94 are replaced by the descriptive names in 
+\f2\i activity 
+\f1\i0 data set\uc0\u8232 \
+\ls2\ilvl0
+\f3 \cf3 \kerning1\expnd0\expndtw0 {\listtext	4.	}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+Appropriately labels the data set with descriptive variable names.\uc0\u8232 - column code in data2 is named activity\u8232 - columns begin with a \'93t\'94 are replaced by \'93Time\'94\u8232 - columns begin with a \'93f\'94 are replaced by \'93Frequency\'94\u8232 - all \'93Acc\'94 in columns\'92 name are replaced by \'93Accelerometer\'94\u8232 - all \'93Gyro\'94 in columns\'92 name are replaced by \'93Gyroscope\'94\u8232 - all \'93Mag\'94 in columns\'92 name are replaced by \'93Magnitude\'94\u8232 - all \'93mean\'94 in columns\'92 name are replaced by \'93Mean\'94\u8232 - all \'93std\'94 in columns\'92 name are replaced by \'93StandardDeviation\'94\u8232 - all \'93-\'94 in columns\'92 name are replaced by \'93_\'94\u8232 - all \'93BodyBody\'94 in columns\'92 name are replaced by \'93Body\'94\u8232 - all \'93tBody\'94 in columns\'92 name are replaced by \'93TimeBody\'94  \u8232 \
+\ls2\ilvl0
+\f3 \cf3 \kerning1\expnd0\expndtw0 {\listtext	5.	}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.\uc0\u8232 - final result \'93TidyData\'94 is created by summarizing data2, calculating the means of each variable for each activity and each subject.\u8232 - export the file by 
+\f2\i write.table() 
+\f1\i0 function\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+}
